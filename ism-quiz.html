@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اسم کی تعریف اور علامات — مشق | Fahm-ul-Qur'an</title>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="اسم کی تعریف اور علامات — Interactive Quiz | Fahm-ul-Qur'an">
+<meta property="og:description" content="Fasiha Online Academy's interactive MCQs and fill-in-the-blanks quiz on Ism (noun) and its 12 signs — instant scoring and explanations.">
+<meta property="og:url" content="https://abidashabi200-ctrl.github.io/fahm-ul-quran-notes/ism-quiz.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="اسم کی تعریف اور علامات — Interactive Quiz | Fahm-ul-Qur'an">
+<meta name="twitter:description" content="Fasiha Online Academy's interactive MCQs and fill-in-the-blanks quiz on Ism (noun) and its 12 signs — instant scoring and explanations.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&family=Gulzar&family=Caveat:wght@600;700&display=swap');
+
+  :root{
+    --paper:#fbf6ec;
+    --ink:#233142;
+    --coral:#d97757;
+    --teal:#1f8a83;
+    --mustard:#c98f1f;
+    --lavender:#7a5fae;
+    --olive:#5f8a3f;
+    --green:#3aa66b;
+    --red:#d1483f;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; padding:16px; background:#e7e2d3;
+    font-family:'Noto Nastaliq Urdu','Gulzar',serif; color:var(--ink);
+  }
+  .wrap{ max-width:900px; margin:0 auto; }
+
+  h1.title{ text-align:center; font-size:2em; color:var(--coral); margin:6px 0 2px; }
+  .subtitle{ text-align:center; font-family:'Caveat',cursive; direction:ltr; color:var(--teal); font-size:1.25em; margin:0 0 14px; }
+
+  .scoreboard{
+    position:sticky; top:8px; z-index:10;
+    background:#fffdf8; border:2.5px solid var(--mustard); border-radius:14px;
+    padding:8px 14px; text-align:center; font-family:'Caveat',cursive; direction:ltr;
+    font-size:1.4em; color:var(--coral); box-shadow:2px 3px 0 rgba(0,0,0,.06); margin-bottom:16px;
+  }
+  .progress-bar{ height:12px; border-radius:10px; background:#e5ded0; overflow:hidden; border:2px solid var(--mustard); margin-top:6px; }
+  .progress-fill{ height:100%; width:0%; background:linear-gradient(90deg,var(--teal),var(--green)); transition:width .4s ease; }
+
+  h2.sec-title{ color:var(--coral); font-size:1.35em; border-bottom:3px dotted var(--coral); display:inline-block; padding-bottom:3px; margin-bottom:12px; }
+
+  .quiz-box{
+    background:#fffdf8; border:2.2px solid var(--teal); border-radius:14px;
+    padding:12px 16px; margin-bottom:12px; box-shadow:2px 3px 0 rgba(0,0,0,.06);
+  }
+  .q-text{ font-size:1.05em; margin-bottom:8px; line-height:1.7; }
+  .arabic{ font-family:'Gulzar',serif; color:var(--lavender); font-weight:700; }
+
+  .opts{ list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+  .opt-btn{
+    text-align:right; padding:7px 10px; border-radius:10px; border:2px solid #cdbfa0;
+    background:#fff; font-family:inherit; font-size:.95em; cursor:pointer; color:var(--ink);
+  }
+  .opt-btn.correct{ background:var(--green); color:#fff; border-color:var(--green); }
+  .opt-btn.wrong{ background:var(--red); color:#fff; border-color:var(--red); }
+  .opt-btn[disabled]{ cursor:default; }
+
+  .explain{
+    display:none; margin-top:8px; padding:8px 10px; border-radius:10px;
+    background:#f3ecd9; border-inline-start:4px solid var(--mustard); font-size:.92em; line-height:1.7;
+  }
+  .explain.show{ display:block; }
+
+  .score-tag{ display:inline-block; margin-inline-start:6px; padding:1px 10px; border-radius:14px; font-size:.85em; font-weight:700; }
+  .score-tag.right{ background:var(--green); color:#fff; }
+  .score-tag.wrong{ background:var(--red); color:#fff; }
+  .score-tag.done{ background:var(--lavender); color:#fff; }
+
+  .blank-btn{
+    display:inline-block; min-width:110px; padding:3px 10px; border-radius:8px;
+    border:2px dashed var(--lavender); background:#fbf7ff; color:var(--lavender);
+    font-family:inherit; font-size:.95em; cursor:pointer; font-weight:700;
+  }
+  .blank-btn.blink{ animation:pulseGlow 1.4s ease-in-out infinite; }
+  @keyframes pulseGlow{
+    0%,100%{ box-shadow:0 0 0 0 rgba(217,119,87,.5); }
+    50%{ box-shadow:0 0 0 8px rgba(217,119,87,0); }
+  }
+  .blank-btn.revealed{ border-style:solid; background:var(--lavender); color:#fff; animation:none; }
+
+  .overlay{
+    position:fixed; inset:0; background:rgba(35,49,66,.55); display:none;
+    align-items:center; justify-content:center; z-index:100;
+  }
+  .overlay.show{ display:flex; }
+  .congrats-card{
+    background:#fffdf8; border-radius:20px; padding:30px 36px; text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.35); max-width:340px;
+  }
+  .congrats-card h3{ color:var(--coral); font-size:1.7em; margin:0 0 8px; }
+  .congrats-card p{ font-size:1.1em; margin:0 0 16px; }
+  .congrats-card button{
+    border:none; background:var(--teal); color:#fff; padding:9px 22px;
+    border-radius:20px; font-family:inherit; font-size:1em; cursor:pointer;
+  }
+  .confetti{ position:fixed; top:-20px; width:10px; height:16px; z-index:99; animation:fall linear forwards; }
+  @keyframes fall{ to{ transform:translateY(105vh) rotate(540deg); opacity:.3; } }
+
+  .footer-note{ text-align:center; font-family:'Caveat',cursive; direction:ltr; color:var(--coral); font-size:1.1em; margin-top:10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="title">اسم کی تعریف اور علامات — مشق</h1>
+  <div class="subtitle">Fahm-ul-Qur'an • MCQs &amp; Fill in the Blanks</div>
+
+  <div class="scoreboard">
+    Total Score: <span id="totalScore">0</span> / 12
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <h2 class="sec-title">🧠 MCQs</h2>
+  <div id="mcqContainer"></div>
+
+  <h2 class="sec-title">✍️ خالی جگہ پُر کریں</h2>
+  <div id="blankContainer"></div>
+
+  <div class="footer-note">✦ Fasiha Online Academy — Interactive Practice ✦</div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="congrats-card">
+    <h3 id="congratsTitle">🎉 مبارک ہو!</h3>
+    <p id="congratsText"></p>
+    <button onclick="closeOverlay()">ٹھیک ہے</button>
+  </div>
+</div>
+
+<script>
+const mcqs = [
+  {q:"اسم کی تعریف کیا ہے؟", opts:["جس سے کام کا پتا چلے","جس کے معنی خود معلوم ہوں اور زمانہ نہ ہو","جو صرف ربط قائم کرے","جو ہمیشہ فعل کے ساتھ آئے"], correct:1,
+   explain:"اسم وہ کلمہ ہے جس کے معنی دوسرے کلمے کے ملائے بغیر خود معلوم ہو جائیں، اور اس میں کوئی زمانہ نہ پایا جائے۔"},
+  {q:"\"الحمد للہ\" میں اسم کی کونسی علامت ہے؟", opts:["تنوین","حرفِ ندا","الف لام","تاءِ متحرکہ"], correct:2,
+   explain:"لفظ کے شروع میں \"الف لام\" کا آنا اسم کی علامت ہے، جیسے الحمد للہ۔"},
+  {q:"\"ناصران\" کس کی مثال ہے؟", opts:["واحد","تثنیہ","جمع","مصغر"], correct:1,
+   explain:"ناصر (واحد)، ناصران (تثنیہ)، ناصرون (جمع) — یہ تثنیہ کی مثال ہے۔"},
+  {q:"\"یا عبداللہ\" میں کونسی علامت پائی جاتی ہے؟", opts:["حرفِ جر","حرفِ ندا","تنوین","منسوب"], correct:1,
+   explain:"شروع میں حرفِ ندا کا آنا اسم کی علامت ہے، جیسے یا عبداللہ۔"},
+  {q:"\"غلامُ زید\" میں \"زید\" کیا کہلاتا ہے؟", opts:["مضاف","مضاف الیہ","موصوف","مسند الیہ"], correct:1,
+   explain:"غلام = مضاف (جو ملکیت بنا)، زید = مضاف الیہ (جس کی ملکیت بنی)۔"},
+  {q:"\"قریش\" کس علامت کی مثال ہے؟", opts:["منسوب","موصوف","مصغر","تنوین"], correct:2,
+   explain:"مصغر یعنی چھوٹائی — قریش اصل لفظ \"قَرش\" سے چھوٹائی کے وزن پر ہے۔"}
+];
+
+const blanks = [
+  {before:"اسم وہ کلمہ ہے جس کے معنی ", answer:"خود بخود", after:" معلوم ہو جائیں۔", explain:"اسم کے معنی دوسرے کلمے کے ملائے بغیر خود بخود معلوم ہو جاتے ہیں۔"},
+  {before:"بغدادی اور مکی ", answer:"منسوب", after:" ہونے کی مثالیں ہیں۔", explain:"کسی چیز کی طرف نسبت دینا منسوب کہلاتا ہے، جیسے بغدادی، مکی۔"},
+  {before:"\"رجلٌ کریمٌ\" میں \"رجل\" ", answer:"موصوف", after:" ہے۔", explain:"جس کی صفت بیان کی جائے اسے موصوف کہتے ہیں، یہاں \"رجل\" موصوف اور \"کریم\" اس کی صفت ہے۔"},
+  {before:"\"عالمٌ\" میں لفظ کے آخر میں ", answer:"تنوین", after:" پائی جاتی ہے۔", explain:"آخر میں تنوین کا ہونا اسم کی علامت ہے، جیسے عالمٌ۔"},
+  {before:"اسم کی کل ", answer:"12", after:" علامات ہیں۔", explain:"اسم کی بارہ (12) مشہور علامات بیان کی گئی ہیں۔"},
+  {before:"\"زید قائم\" میں زید ", answer:"مسند الیہ", after:" ہے۔", explain:"جس کے متعلق بات ہو رہی ہو اسے مسند الیہ کہتے ہیں — یہاں بات زید کے بارے میں ہو رہی ہے۔"}
+];
+
+let mcqScore = 0, blankScore = 0, answered = 0;
+const total = mcqs.length + blanks.length;
+
+function updateBoard(){
+  const s = mcqScore + blankScore;
+  document.getElementById('totalScore').textContent = s;
+  document.getElementById('progressFill').style.width = Math.round((answered/total)*100) + '%';
+  if(answered === total){
+    showCongrats('🏆 شاباش!', `آپ نے پوری مشق مکمل کر لی۔ Total Score: ${s} / ${total}`);
+  }
+}
+
+const mcqContainer = document.getElementById('mcqContainer');
+mcqs.forEach((m,i)=>{
+  const box = document.createElement('div');
+  box.className = 'quiz-box';
+  const optsHtml = m.opts.map((o,oi)=>`<button class="opt-btn" data-idx="${oi}">${o}</button>`).join('');
+  box.innerHTML = `<div class="q-text"><b>${i+1}.</b> ${m.q}</div><ul class="opts">${optsHtml}</ul><div class="explain"></div>`;
+  mcqContainer.appendChild(box);
+  const optBtns = box.querySelectorAll('.opt-btn');
+  optBtns.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      if(box.dataset.answered) return;
+      box.dataset.answered = "1";
+      const idx = parseInt(btn.dataset.idx);
+      optBtns.forEach(b=>b.disabled=true);
+      let tag;
+      if(idx === m.correct){
+        btn.classList.add('correct'); mcqScore++;
+        tag = '<span class="score-tag right">✅ +1</span>';
+      } else {
+        btn.classList.add('wrong'); optBtns[m.correct].classList.add('correct');
+        tag = '<span class="score-tag wrong">❌ +0</span>';
+      }
+      const ex = box.querySelector('.explain');
+      ex.innerHTML = '💡 ' + m.explain + tag;
+      ex.classList.add('show');
+      answered++; updateBoard();
+    });
+  });
+});
+
+const blankContainer = document.getElementById('blankContainer');
+blanks.forEach((b,i)=>{
+  const box = document.createElement('div');
+  box.className = 'quiz-box';
+  box.innerHTML = `<div class="q-text"><b>${i+1}.</b> ${b.before}<button class="blank-btn blink">؟ ٹیپ کریں</button>${b.after}</div><div class="explain"></div>`;
+  blankContainer.appendChild(box);
+  const btn = box.querySelector('.blank-btn');
+  btn.addEventListener('click', ()=>{
+    if(btn.classList.contains('revealed')) return;
+    btn.textContent = b.answer;
+    btn.classList.remove('blink');
+    btn.classList.add('revealed');
+    blankScore++;
+    const ex = box.querySelector('.explain');
+    ex.innerHTML = '💡 ' + b.explain + '<span class="score-tag done">✅ +1</span>';
+    ex.classList.add('show');
+    answered++; updateBoard();
+  });
+});
+
+function showCongrats(title, text){
+  document.getElementById('congratsTitle').textContent = title;
+  document.getElementById('congratsText').textContent = text;
+  document.getElementById('overlay').classList.add('show');
+  launchConfetti();
+}
+function closeOverlay(){ document.getElementById('overlay').classList.remove('show'); }
+function launchConfetti(){
+  const colors = ['#d97757','#1f8a83','#c98f1f','#7a5fae','#5f8a3f','#3aa66b'];
+  for(let i=0;i<50;i++){
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random()*100 + 'vw';
+    c.style.background = colors[Math.floor(Math.random()*colors.length)];
+    c.style.animationDuration = (2 + Math.random()*1.5) + 's';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(), 4000);
+  }
+}
+</script>
+</body>
+</html>
